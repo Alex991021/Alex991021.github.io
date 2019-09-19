@@ -234,17 +234,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>线性表：顺序表和链表</p>
-<p>顺序表的创建</p>
-<p>#include &lt;stdio.h&gt;</p>
+        <h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="线性表：顺序表和链表"><a href="#线性表：顺序表和链表" class="headerlink" title="线性表：顺序表和链表"></a>线性表：顺序表和链表</h2><h3 id="顺序表的创建"><a href="#顺序表的创建" class="headerlink" title="顺序表的创建"></a>顺序表的创建</h3><p>`#include &lt;stdio.h&gt;</p>
 <p>#include &lt;stdlib.h&gt;</p>
 <p>#define LISTSIZE 4<br>typedef int Elemtype;<br>typedef struct<br>{<br>  Elemtype <em>elem;//使用指针作为存储空间<br>  int length;//当前长度<br>  int listsize;//最大长度<br>}sqlist；<br>int main()<br>{<br>  int i,j;<br>  sqlist <em>a,b; /</em>创建</em>/<br>  a=&b;<br>  a-&gt;listsize = LISTSIZE;<br>  a-&gt;elem = (Elemtype<em>)malloc(sizeof(Elemtype) * (a-&gt;listsize));<br>  a-&gt;length = 0;<br>  /*以上三条语句为初始化语句</em>/</p>
 <p>  /<em>输入数据</em>/<br>  printf(“请输入%d个元素”,LISTSIZE);<br>  for(i = 0 ; i &lt; LISTSIZE;++i)<br>  {<br>    printf(“请输入第%d个元素”,i+1)<br>    scanf(“%d”,&amp;a-&gt;elem[i]);<br>    a-&gt;length++;<br>  }<br>  printf(“\n当前顺序表存储数据为：”);<br>  for(j = 0; j &lt; LISTSIZE;++j)<br>  {<br>    printf(“%d”,a -&gt;elem[j]);<br>  }<br>}</p>
 <p>单向链表的创建</p>
 <p>#include &lt;stdio.h&gt;</p>
 <p>#include &lt;stdlib.h&gt;</p>
-<p>#define LISTSIZE 4<br>typedef int Elemtype;<br>typedef struct node<br>{<br>  Elemtype <em>data;<br>  struct node <em>next;<br>}JD;<br>void crtlinklist();<br>void crtlinklist()<br>{<br>  JD *phead,</em>p,*ptail;<br>  int i;<br>  p = (JD</em>)malloc(sizeof(JD));<br>  /<em>*输入数据</em>/<br>  printf(“请输入第1个元素”);<br>  scanf(“%d”,&amp;p-&gt;data);<br>  phead = p;<br>  ptail = p;<br>  for(i = 0;i&lt;4;i++)<br>    {<br>      p = (JD<em>)malloc(sizeof(JD));<br>      printf(“请输入第%d个元素”,i+2);<br>      scanf(“%d”,&amp;p-&gt;data);<br>      ptail -&gt; next = p;<br>      ptail = p;<br>    }<br>  p-&gt;next = NULL;<br>  /*打印链表</em>/<br>  printf(“生成的链表为：”);<br>  p=phead;<br>  for(i = 0;i&lt;5;i++)<br>  {<br>    printf(“%d”,p-&gt;data);<br>    p = p-&gt;next;<br>  }</p>
-<p>}</p>
+<p>#define LISTSIZE 4<br>typedef int Elemtype;<br>typedef struct node<br>{<br>  Elemtype <em>data;<br>  struct node <em>next;<br>}JD;<br>void crtlinklist();<br>void crtlinklist()<br>{<br>  JD *phead,</em>p,*ptail;<br>  int i;<br>  p = (JD</em>)malloc(sizeof(JD));<br>  /<em>*输入数据</em>/<br>  printf(“请输入第1个元素”);<br>  scanf(“%d”,&amp;p-&gt;data);<br>  phead = p;<br>  ptail = p;<br>  for(i = 0;i&lt;4;i++)<br>    {<br>      p = (JD<em>)malloc(sizeof(JD));<br>      printf(“请输入第%d个元素”,i+2);<br>      scanf(“%d”,&amp;p-&gt;data);<br>      ptail -&gt; next = p;<br>      ptail = p;<br>    }<br>  p-&gt;next = NULL;<br>  /*打印链表</em>/<br>  printf(“生成的链表为：”);<br>  p=phead;<br>  for(i = 0;i&lt;5;i++)<br>  {<br>    printf(“%d”,p-&gt;data);<br>    p = p-&gt;next;<br>  }<br>} `</p>
+<hr>
 
       
 
