@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="第二章线性表：顺序表和链表顺序表的创建#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #define LISTSIZE 4typedef int Elemtype;typedef struct{  Elemtype elem;//使用指针作为存储空间  int length;//当前长度  int listsize;//最大长度}sqlist；">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-28T08:45:25.698Z">
+<meta property="og:updated_time" content="2019-10-04T13:33:55.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构">
 <meta name="twitter:description" content="第二章线性表：顺序表和链表顺序表的创建#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #define LISTSIZE 4typedef int Elemtype;typedef struct{  Elemtype elem;//使用指针作为存储空间  int length;//当前长度  int listsize;//最大长度}sqlist；">
@@ -189,6 +189,9 @@
 <h3 id="顺序表的合并"><a href="#顺序表的合并" class="headerlink" title="顺序表的合并"></a>顺序表的合并</h3><p>void mergelist(Sqlist *a,Sqlist *b,Sqlist *c)<br>{<br>  int pa,pb,pc;<br>  pa=pb=pc=0;<br>  while(pa &lt; a-&gt;length &amp;&amp; pb &lt; b-&gt;length)<br>  {<br>    if(a -&gt; elem[pa] &lt;= b-&gt;elem[pb])<br>    {<br>      c -&gt;elem[pc]=a-&gt;elem[pa];<br>      pa++;<br>      pc++;<br>    }<br>    else<br>    {<br>      c-&gt;elem[pc]=b-&gt;elem[pb];<br>      pb++;<br>      pc++;<br>    }<br>  }<br>  while(pa &lt; a-&gt;length)<br>  {<br>    c-&gt;elem[pc]=a-&gt;elem[pa];<br>    pa++;<br>    pc++;<br>  }<br>  while(pb &lt; b-&gt;length)<br>  {<br>    c-&gt;elem[pc]=b-&gt;elem[pb]<br>    pb++;<br>    pc++;<br>  }<br>  c-&gt;length = a-&gt;length + b-&gt;length;<br>}</p>
 <h3 id="单向链表的合并和销毁"><a href="#单向链表的合并和销毁" class="headerlink" title="单向链表的合并和销毁"></a>单向链表的合并和销毁</h3><p>void mergelist(JD<em>La,JD</em>Lb,JD*<em>Lc)<br>{<br>  JD</em>pa,<em>pb,</em>pc;<br>  pa=La-&gt;next;<br>  pb=Lb-&gt;next;<br>  pc=La;<br>  <em>Lc=La;<br>  while(pa&amp;&amp;pb)<br>  {<br>    if(pa-&gt;data&lt;=pb-&gt;data)<br>    {<br>      pc-&gt;next=pa;<br>      pc=pa;<br>      pa=pa-&gt;next;<br>    }<br>    else<br>    {<br>      pc-&gt;next=pb;<br>      pc=pb;<br>      pb=pb-&gt;next;<br>    }<br>  }<br>  pc-&gt;next=pa ? pa : pb;<br>  free(Lb);<br>}<br>void destroylist(JD</em>L)<br>{<br>  JD*p;<br>  while(L!=NULL)<br>  {<br>    p=L;<br>    L=L-&gt;next;<br>    free(p);<br>  }<br>}</p>
 <hr>
+<h3 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h3><p>void creatlist(JD*<em>rear,int n)<br>{<br>  int i;<br>  JD *p,</em>phead;<br>  phead = NULL;<br>  for(i = 0;i&lt;n;i++)<br>  {<br>    p = (JD)malloc(sizeof(JD))<br>    scanf(“%d”,&amp;(p-&gt;data));<br>    if(i == 0) <em>rear = p;<br>    p-&gt;next = phead;<br>    phead = p;<br>  }<br>  p = (JD)malloc(sizeof(JD));<br>  p -&gt; next = phead;<br>  phead = p;<br>  (</em>rear)-&gt;next = phead;<br>}</p>
+<h3 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h3><p>JD* initlist()<br>{<br>  JD*p;<br>  p=(JD)malloc(sizeof(JD))<br>  p-&gt;next = p;<br>  p-&gt;prior = p;<br>  return p;<br>}</p>
+<p>void insertlist(JD<em>L,int i,Elemtype e)<br>{<br>  int j;<br>  JD</em>p,*q;<br>  j = 1;<br>  p= L-&gt;next;<br>  while(p!=L&amp;&amp;j&lt;i)<br>  {<br>    p = p-&gt;next;<br>    j++<br>  }<br>  q = (JD)malloc(sizeof(JD));<br>  q -&gt;data = e;<br>  q -&gt;next = p;<br>  q -&gt;prior = p-&gt;prior;<br>  p -&gt;prior-&gt;next = q;<br>  p -&gt;prior=q;<br>}</p>
 
       
 
